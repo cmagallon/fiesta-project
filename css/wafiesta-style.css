@@ -5,14 +5,6 @@ body{
 	background: #000000;
 	font-family: 'Roboto', sans-serif;
 }
-/*footer{
-	height: 130px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: red;
-    position: fixed;
-    bottom: 0;
-}*/
 .footer{
     position: fixed;
     bottom: 0;
@@ -47,6 +39,50 @@ body{
     font-weight: 500;
     font-size: 18px;
 }
+.parties-title, .services-title{
+    color: #E6E6E6;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 50px;
+    text-decoration: underline;
+}
+.parties-title:first-child, .services-title:first-child{
+    text-decoration: none;
+    margin-bottom: -30px;
+    font-size: 40px;
+}
+.parties{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+.parties-content{
+    width: 550px;
+    color: #E6E6E6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.parties-title_under{
+    color: #E6E6E6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+.parties-subcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+.parties-img{
+    width: 350px;
+}
 .social-media-icons{
     display: flex;
     flex-direction: row;
@@ -58,17 +94,9 @@ body{
     color: #E6E6E6;
     font-size: 20px;
 }
-/*.video{
-    margin-top: 10px;
-    width: 100%;
-    height: 500px;
-}*/
 .logo img{
     width: 250px;
     height: auto;
-}
-/*.container{
-    margin-top: 15px;
 }
 .arrowDown{
     font-size: 100px;
@@ -90,7 +118,27 @@ body{
     width: 100%;
     height: 500px;
 }
-
 .container{
-    margin-bottom: 250px;
-}*/
+    margin-bottom: 200px;
+}
+.services{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.services-single{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.services-single_img{
+    width: 300px;
+    height: auto;
+}
+.services-single_title{
+    color: #E6E6E6;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 30px;
+}

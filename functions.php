@@ -1,8 +1,11 @@
 <?php 
+
+add_action( 'send_headers', 'send_frame_options_header', 10, 0 );
+
 function customThemeEnqueues(){
 	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7', 'all');
 	wp_enqueue_style( 'customStyle', get_template_directory_uri() . '/css/wafiesta-style.css', array(), '1.0.0', 'all' );
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css' );
+	// wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css' );
 	
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '3.3.7', true);
@@ -27,18 +30,18 @@ add_theme_support( 'custom-logo' );
 add_theme_support('custom-background');
 add_theme_support('post-thumbnails');
 
-// $customHeaderSetting = array(
-//         'default-image' => '',
-//         'width' => 100,
-//         'height' => 50,
-//         'flex-height' => true,
-//         'flex-width' => true,
-//         'default-text-color' => '',
-//         'header-text' => true,
-//         'uploads' => true,
-//         'video' => true,
-// 	);
-// add_theme_support('custom-header', $customHeaderSetting);
+$customHeaderSetting = array(
+        'default-image' => '',
+        'width' => 100,
+        'height' => 50,
+        'flex-height' => true,
+        'flex-width' => true,
+        'default-text-color' => '',
+        'header-text' => true,
+        'uploads' => true,
+        'video' => false,
+	);
+add_theme_support('custom-header', $customHeaderSetting);
 
 function customLogoSetUp(){
 	$customLogoSetting = array(
@@ -69,10 +72,6 @@ function customTheme_customize($wp_customize){
 		'default' => 'Helvetica',
 		'transport' => 'refresh'
 	));
-	// $wp_customize->add_setting('video_front_page', array(
-	// 	'default' => '',
-	// 	'transport' => 'refresh'
-	// ));
 
 	//Section
 	$wp_customize->add_section('newtheme_text_colour_section', array(
@@ -82,10 +81,6 @@ function customTheme_customize($wp_customize){
 	$wp_customize->add_section('newtheme_font_section', array(
 		'title' => __('Fonts', 'New Custom Theme')
 	));
-
-	// $wp_customize->add_section('video_front_page_section', array(
-	// 	'title' => __('Video', 'New Custom Theme')
-	// ));
 
 	// Add the control
 
@@ -110,13 +105,6 @@ function customTheme_customize($wp_customize){
                 'Times'  => __( 'Times New Roman' )
             )
 	)));
-	// $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'video_front_page_control', array(
-	// 	'label'=>__('video', 'New Custom Theme'),
-	// 	'section'=>'video_front_page_control_section',
-	// 	'settings'=>'video_front_page_control',
-	// 	'video'=>true
-	// )));
-
 };
 
 add_action('customize_register', 'customTheme_customize');
@@ -236,37 +224,96 @@ function parties_init() {
 }
 add_action( 'init', 'parties_init' );
 
+function services_init() {
+    $labels = array(
+        'name'               => _x( 'Services', 'post type general name' ),
+        'singular_name'      => _x( 'Services', 'post type singular name' ),
+        'menu_name'          => _x( 'Services', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Services', 'add new on admin bar' ),
+        'add_new'            => _x( 'Add New Service', 'programme' ),
+        'add_new_item'       => __( 'Add New Service' ),
+        'new_item'           => __( 'New Service' ),
+        'edit_item'          => __( 'Edit Service' ),
+        'view_item'          => __( 'View Service' ),
+        'all_items'          => __( 'All Service' ),
+        'search_items'       => __( 'Search Services' ),
+        'parent_item_colon'  => __( 'Parent Services:' ),
+        'not_found'          => __( 'No Services found.' ),
+        'not_found_in_trash' => __( 'No Services found in Trash.' )
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'show_ui' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'rewrite' => array('slug' => 'Services'),
+        'query_var' => true,
+        'menu_icon' => 'dashicons-clipboard',
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail',),
+        );
+    register_post_type( 'services', $args );
+}
+add_action( 'init', 'services_init' );
+
 // VIDEO //
 
-add_theme_support( 'custom-header', array(
-  'video' => true
-));
-add_filter( 'is_header_video_active', 'custom_video_header_pages' );
+// add_theme_support( 'custom-header', array(
+//   'video' => true
+// ));
+// add_filter( 'is_header_video_active', 'custom_video_header_pages' );
 
-function custom_video_header_pages( $active ) {
-  if( is_home() || is_page() ) {
-    return true;
-  }
+// function custom_video_header_pages( $active ) {
+//   if( is_home() || is_page() ) {
+//     return true;
+//   }
 
-  return false;
-}
+//   return false;
+// }
 
-add_theme_support( 'custom-header', array(
-  'video' => true,
-  'video-active-callback' => 'custom_video_active_callback'
-));
+// add_theme_support( 'custom-header', array(
+//   'video' => true,
+//   'video-active-callback' => 'custom_video_active_callback'
+// ));
 
-function custom_video_active_callback() {
-  if( !is_user_logged_in() && !is_home() ) {
-    return true;
-  }
+// function custom_video_active_callback() {
+//   if( !is_user_logged_in() && !is_home() ) {
+//     return true;
+//   }
   
-  return false;
-}
+//   return false;
+// }
 
-add_filter( 'header_video_settings', 'my_header_video_settings');
-function my_header_video_settings( $settings ) {
-  $settings['minWidth'] = 680;
-  $settings['minHeight'] = 400;
-  return $settings;
+// add_filter( 'header_video_settings', 'my_header_video_settings');
+// function my_header_video_settings( $settings ) {
+//   $settings['minWidth'] = 680;
+//   $settings['minHeight'] = 400;
+//   return $settings;
+// }
+
+// add_theme_support( 'custom-header', array(
+//  'video' => true,
+// ) );
+
+function newTheme_video($wp_customize){
+	//Settings
+	$wp_customize->add_setting('newTheme_video', array(
+		'default' => 'Paste your video link',
+		'transport' => 'refresh',
+		'autoplay' => 'on'
+	));
+	//Section
+	$wp_customize->add_section('newTheme_video_section', array(
+		'title' => 'Video Link'
+	));
+	//Control
+	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'newTheme_video_control', array(
+		'label' => 'Video Link',
+		'section' => 'newTheme_video_section',
+		'settings' => 'newTheme_video'
+	)));
 }
+add_action('customize_register', 'newTheme_video');
