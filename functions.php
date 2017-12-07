@@ -261,43 +261,6 @@ add_action( 'init', 'services_init' );
 
 // VIDEO //
 
-// add_theme_support( 'custom-header', array(
-//   'video' => true
-// ));
-// add_filter( 'is_header_video_active', 'custom_video_header_pages' );
-
-// function custom_video_header_pages( $active ) {
-//   if( is_home() || is_page() ) {
-//     return true;
-//   }
-
-//   return false;
-// }
-
-// add_theme_support( 'custom-header', array(
-//   'video' => true,
-//   'video-active-callback' => 'custom_video_active_callback'
-// ));
-
-// function custom_video_active_callback() {
-//   if( !is_user_logged_in() && !is_home() ) {
-//     return true;
-//   }
-  
-//   return false;
-// }
-
-// add_filter( 'header_video_settings', 'my_header_video_settings');
-// function my_header_video_settings( $settings ) {
-//   $settings['minWidth'] = 680;
-//   $settings['minHeight'] = 400;
-//   return $settings;
-// }
-
-// add_theme_support( 'custom-header', array(
-//  'video' => true,
-// ) );
-
 function newTheme_video($wp_customize){
 	//Settings
 	$wp_customize->add_setting('newTheme_video', array(

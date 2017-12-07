@@ -24,6 +24,8 @@
 						<div class="parties-subcontainer">
 							<div class="parties-title_under"><?php the_title(); ?></div>
 							<div class="parties-content"><?php the_content(); ?></div>
+							
+							<a  class="btn btn-primary" href="<?php echo esc_url(get_permalink()); ?>">See More</a>
 						</div>
 						
 						<div class="parties-img"><?php the_post_thumbnail('full', ['class' => 'img-responsive', 'title' => 'Feature image']); ?></div>
@@ -53,8 +55,8 @@
 						<?php while($services->have_posts()): $services->the_post();?>
 
 							<div class="services-single">
-								<h1 class="services-single_title"><?php the_title(); ?></h1>
-								<div class="services-single_img"><?php the_post_thumbnail('full', ['class' => 'img-responsive', 'title' => 'Feature image']); ?></div>
+								<h1 class="services-single_title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></h1>
+								<div class="services-single_img"><a href="<?php echo get_permalink(); ?>"><?php the_post_thumbnail('full', ['class' => 'img-responsive', 'title' => 'Feature image']); ?></div>
 							</div>
 						<?php endwhile; ?>
 					</div>

@@ -142,3 +142,98 @@ body{
     text-transform: uppercase;
     font-size: 30px;
 }
+.text-form{
+    color: #E6E6E6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+}
+.form{
+    margin-top: 40px;
+}
+.contact-details{
+    width: 60%;
+}
+.label-form{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family:'Roboto Condensed', sans-serif; 
+}
+.btn-wearefiesta{
+    color: #E6E6E6;
+    background-color: #02133D;
+    border-color: #02257D;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family:'Roboto Condensed', sans-serif; 
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.btn-wearefiesta:hover{
+    background-color: #2E2D2D;
+    border-color: #E0E0E0;
+    border-radius: 5px;
+}
+.thanks-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+.thanks-title{
+    color: #E6E6E6;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.thanks-content{
+    color: #E6E6E6;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+}
+.contact-title{
+    color: #E6E6E6;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.contact-content{
+    color: #E6E6E6;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.contact-content p{
+    margin-bottom: 100px;
+}
+.contact-icons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 70px;
+}
+.contact-sinlge_icon{
+    margin-top: -396px;
+    margin-bottom: 53px;
+}
+
+
+
+
+
+
+
