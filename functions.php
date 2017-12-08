@@ -17,8 +17,9 @@ add_action('wp_enqueue_scripts', 'customThemeEnqueues');
 function addGoogleFonts(){
     wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i', false );
     wp_enqueue_style( 'bebas', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="styleshee', false );
+    wp_enqueue_style( 'oswald', 'https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="styleshee', false );
 };
-    add_action('wp_enqueue_scripts', 'addGoogleFonts');
+add_action('wp_enqueue_scripts', 'addGoogleFonts');
 
 function customThemeSetUp(){
 	add_theme_support('menus');
@@ -56,7 +57,7 @@ function customLogoSetUp(){
 
 add_action('after_setup_theme', 'customLogoSetUp');
 
-add_theme_support('post-formats', array('aside', 'image', 'video'));
+add_theme_support('post-formats', array('aside', 'image', 'video', 'gallery'));
 
 function customTheme_customize($wp_customize){
 	//Settings
